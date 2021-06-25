@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab16.View.SchoolPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Name" />
+            <Entry Text="{Binding Path=Name}"
+                   Placeholder="Enter Item"/>
+            <Label Text="Amount Teachers"/>
+            <Entry Text="{Binding Path=AmountTeachers}"
+                   Placeholder="Enter amount teachers"/>
+            <Label Text="Location"/>
+            <Entry Text="{Binding Path=Location}"
+                   Placeholder="Enter notes"/>
+            <Label Text="Creation date"/>
+            <DatePicker Date="{Binding Path=CreationDate}" />
+            <Label Text="Licenced?"/>
+            <Switch IsToggled="{Binding Path=Licenced}"/>
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked"/>
+            <Button Text="Delete"
+                    Clicked="OnDeleteButtonClicked"/>
+            <Button Text="Cancel"
+                    Clicked="OnCancelButtonClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

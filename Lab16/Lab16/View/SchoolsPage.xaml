@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab16.View.SchoolsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnAddItemClicked">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android, UWP" Value="plus.png"/>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Padding>
+                <OnPlatform 
+                    x:TypeArguments="Thickness"
+                    Android="20"
+                    iOS="50"/>
+            </StackLayout.Padding>
+            
+            <ListView
+                x:Name="ListView"
+                ItemSelected="OnItemSelected"
+                HasUnevenRows="True"            
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="True"
+                                Margin="1">
+
+                                <StackLayout
+                                    Orientation="Vertical">
+                                    <Grid
+                                    VerticalOptions="CenterAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label 
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Text="Name: "
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Text="{Binding Name}"/>
+                                        
+                                        <Label 
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Text="Amount Teachers: "
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Text="{Binding AmountTeachers}"/>
+
+                                        <Label 
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            Text="Creation Date: "
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            Text="{Binding CreationDate}"/>
+                                        
+                                        <Label 
+                                            Grid.Row="3"
+                                            Grid.Column="0"
+                                            Text="Location: "
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Grid.Row="3"
+                                            Grid.Column="1"
+                                            Text="{Binding Location}"/>
+                                        
+                                        <Label 
+                                            Grid.Row="4"
+                                            Grid.Column="0"
+                                            Text="Licenced: "
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Grid.Row="4"
+                                            Grid.Column="1"
+                                            Text="{Binding Licenced}"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
